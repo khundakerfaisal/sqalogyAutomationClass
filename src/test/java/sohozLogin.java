@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class sohozLogin {
     public static void main(String[] args) throws InterruptedException {
-//        WebDriver driver=new ChromeDriver();
-//        driver.get("https://www.shohoz.com/contact-us");
-//        driver.manage().window().maximize();
-//        WebElement bus=driver.findElement(By.id("purpose"));
-//        bus.click();
-//        Thread.sleep(5000);
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.shohoz.com/contact-us");
+        driver.manage().window().maximize();
+        WebElement bus=driver.findElement(By.id("purpose"));
+        bus.click();
+        Thread.sleep(5000);
 
 
     }
