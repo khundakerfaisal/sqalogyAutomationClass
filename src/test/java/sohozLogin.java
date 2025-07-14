@@ -30,46 +30,57 @@ public class sohozLogin {
 //        driver.findElement(By.id("submit")).click();
 //        Thread.sleep(5000);
 //        driver.get("https://demo.automationtesting.in/Register.html");
-        //Using Locator ------ID-------
+    //Using Locator ------ID-------
                 //            driver.get("https://demoqa.com/text-box");
                 //            driver.manage().window().maximize();
                 //            Thread.sleep(5000);
                 //            driver.findElement(By.id("userName")).sendKeys("Faisal");
-        //Using Locator ------link text-------
+    //Using Locator ------link text-------
                 //        driver.get("https://demoqa.com/links");
                 //        driver.manage().window().maximize();
                 //        Thread.sleep(500);
                 //        WebElement homeClick=driver.findElement(By.linkText("Home"));
                 //        homeClick.click();
                 //        Thread.sleep(4000);
-        //Using Locator ------Partial link text-------
+    //Using Locator ------Partial link text-------
                 //        driver.get("https://demoqa.com/links");
                 //        driver.manage().window().maximize();
                 //        Thread.sleep(500);
                 //        WebElement partialHomeClick=driver.findElement(By.partialLinkText("Ho"));
                 //        partialHomeClick.click();
                 //        Thread.sleep(4000);
-//Using Locator ------class name-------
+    //Using Locator ------class name-------
                 //        driver.get("https://demoqa.com/text-box");
                 //        driver.manage().window().maximize();
                 //        Thread.sleep(500);
                 //        WebElement Name=driver.findElement(By.className("form-control"));
                 //        Name.sendKeys("Dhaka");
                 //        Thread.sleep(4000);
-//Using Locator ------css selector name-------
+    //Using Locator ------css selector name-------
                 //        driver.get("https://demoqa.com/text-box");
                 //        driver.manage().window().maximize();
                 //        Thread.sleep(500);
                 //        List<WebElement> Email=driver.findElements(By.cssSelector(".form-control"));
                 //        Email.get(1).sendKeys("a@yopmail.com");
                 //        Thread.sleep(4000);
-//Using Locator ------tag name-------
-        driver.get("https://demoqa.com/text-box");
-        driver.manage().window().maximize();
-        Thread.sleep(500);
-        List<WebElement> Email=driver.findElements(By.cssSelector(".form-control"));
-        Email.get(1).sendKeys("a@yopmail.com");
-        Thread.sleep(4000);
+    //Using Locator ------tag name-------
+                //        driver.get("https://demoqa.com/text-box");
+                //        driver.manage().window().maximize();
+                //        Thread.sleep(500);
+                //        WebElement currentAddress=driver.findElement(By.tagName("textarea"));
+                //        currentAddress.sendKeys("Dhanmondi");
+                //        Thread.sleep(4000);
+
+        //Using Locator ------Xpath name-------
+
+//                driver.get("https://demoqa.com/text-box");
+//                driver.manage().window().maximize();
+//                Thread.sleep(500);
+                WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]"));
+                WebElement TextAddress=driver.findElement(By.xpath("//div/h1[contains(text(),'Text Box')]"));
+                WebElement spanAddress=driver.findElement(By.xpath("//*[contains(text(),'Text Box')][1]"));
+//                currentAddress.sendKeys("Dhanmondi");
+//                Thread.sleep(4000);
 
 
 
