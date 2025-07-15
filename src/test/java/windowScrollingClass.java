@@ -19,8 +19,8 @@ public class windowScrollingClass {
         WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]")); // Scroll to the focus element
         js.executeScript("arguments[0].scrollIntoView(true)",currentAddress);
 
-
-
-
     }
 }
+
+
+
