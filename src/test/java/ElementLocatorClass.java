@@ -1,14 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.time.Duration;
-import java.util.List;
-import java.util.Scanner;
-
-public class sohozLogin {
+public class ElementLocatorClass {
     public static void main(String[] args) throws InterruptedException {
 //        WebDriver driver=new ChromeDriver();
 //        driver.get("https://www.shohoz.com/contact-us");
@@ -73,17 +69,24 @@ public class sohozLogin {
 
         //Using Locator ------Xpath name-------
 
-                                driver.get("https://demoqa.com/text-box");
-                                driver.manage().window().maximize();
-                                Thread.sleep(500);
-                                WebElement clickMenu=driver.findElement(By.xpath("(//ul[@class='menu-list']/li)[2]"));
-                                clickMenu.click();
-                                Thread.sleep(2000);
+                //                                driver.get("https://demoqa.com/text-box");
+                //                                driver.manage().window().maximize();
+                //                                Thread.sleep(500);
+                //                                WebElement clickMenu=driver.findElement(By.xpath("(//ul[@class='menu-list']/li)[2]"));
+                //                                clickMenu.click();
+                //                                Thread.sleep(2000);
+                        //Different type of xpath Example
                 //                WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]"));
                 //                WebElement TextAddress=driver.findElement(By.xpath("//div/h1[contains(text(),'Text Box')]"));
                 //                WebElement spanAddress=driver.findElement(By.xpath("//*[contains(text(),'Text Box')][1]"));
                 //                currentAddress.sendKeys("Dhanmondi");
                 //                Thread.sleep(4000);
+
+
+
+
+
+
 
 
 
