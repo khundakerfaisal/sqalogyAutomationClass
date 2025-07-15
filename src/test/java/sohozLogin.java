@@ -73,14 +73,17 @@ public class sohozLogin {
 
         //Using Locator ------Xpath name-------
 
-//                driver.get("https://demoqa.com/text-box");
-//                driver.manage().window().maximize();
-//                Thread.sleep(500);
-                WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]"));
-                WebElement TextAddress=driver.findElement(By.xpath("//div/h1[contains(text(),'Text Box')]"));
-                WebElement spanAddress=driver.findElement(By.xpath("//*[contains(text(),'Text Box')][1]"));
-//                currentAddress.sendKeys("Dhanmondi");
-//                Thread.sleep(4000);
+                                driver.get("https://demoqa.com/text-box");
+                                driver.manage().window().maximize();
+                                Thread.sleep(500);
+                                WebElement clickMenu=driver.findElement(By.xpath("(//ul[@class='menu-list']/li)[2]"));
+                                clickMenu.click();
+                                Thread.sleep(2000);
+                //                WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]"));
+                //                WebElement TextAddress=driver.findElement(By.xpath("//div/h1[contains(text(),'Text Box')]"));
+                //                WebElement spanAddress=driver.findElement(By.xpath("//*[contains(text(),'Text Box')][1]"));
+                //                currentAddress.sendKeys("Dhanmondi");
+                //                Thread.sleep(4000);
 
 
 
