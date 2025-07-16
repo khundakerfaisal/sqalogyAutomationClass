@@ -9,14 +9,24 @@ public class handleAlertClass {
         driver.get("https://demoqa.com/alerts");
         driver.manage().window().maximize();
         driver.findElement(By.id("alertButton")).click();
-        Thread.sleep(1000);
-//        driver.findElement(By.id(("alertButton"))).click();
-//        driver.switchTo().alert().accept();
-//        //driver.switchTo().alert().dismiss();
-//        driver.findElement(By.id(("promtButton"))).click();
-//        driver.switchTo().alert().sendKeys("Fahim");
-//        Thread.sleep(2000);
-//        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+
+        driver.findElement(By.id("timerAlertButton")).click();
+        Thread.sleep(7000);
+        driver.switchTo().alert().accept();
+
+        driver.findElement(By.id("confirmButton")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+
+        driver.findElement(By.id("promtButton")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().sendKeys("Prince");
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        String textActual=driver.findElement(By.id("promptResult")).getText();
+        Assertions.assertTrue(textActual.contains("Prince"));
 //        String text= driver.findElement(By.id("promptResult")).getText();
 //        Assertions.assertTrue(text.contains("Fahim"));
     }

@@ -6,15 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.security.Key;
 import java.sql.Driver;
+import java.time.LocalDate;
 
 public class selectDropdownClass {
 
 
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver=new ChromeDriver();
-        driver.get("https://demoqa.com/select-menu");
+        driver.get("https://demoqa.com/date-picker");
         driver.manage().window().maximize();
+
+
             //Select Dropdown Value
 //        Select colurSelect=new Select(driver.findElement(By.id("oldSelectMenu")));
 //        colurSelect.selectByVisibleText("Green");
