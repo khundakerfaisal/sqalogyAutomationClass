@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.security.Key;
 import java.sql.Driver;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class selectDropdownClass {
 
@@ -37,12 +39,11 @@ public class selectDropdownClass {
 //        action.sendKeys(Keys.ARROW_DOWN).perform();
 //        action.sendKeys(Keys.ENTER).perform();
 //        Thread.sleep(5000);
-        LocalDate dateSelect=LocalDate.now();
-        WebElement date=driver.findElement(By.id("datePickerMonthYearInput"));
+        LocalDateTime dateTime=LocalDateTime.now();
+        WebElement date=driver.findElement(By.id("dateAndTimePickerInput"));
         date.sendKeys(Keys.CONTROL,"a");
         date.sendKeys(Keys.BACK_SPACE);
-
-        date.sendKeys(dateSelect.toString());
+        date.sendKeys(dateTime.format(DateTimeFormatter.ofPattern("MM d, yyyy h:mm a")));
         date.sendKeys(Keys.ENTER);
         Thread.sleep(1000);
 
