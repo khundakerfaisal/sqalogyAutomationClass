@@ -16,8 +16,8 @@ public class selectDropdownClass {
 
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver=new ChromeDriver();
-//        driver.get("https://demoqa.com/date-picker");
-        driver.get("https://demoqa.com/select-menu");
+        driver.get("https://demoqa.com/date-picker");
+//        driver.get("https://demoqa.com/select-menu");
         driver.manage().window().maximize();
 
 
@@ -37,13 +37,16 @@ public class selectDropdownClass {
 //        action.sendKeys(Keys.ARROW_DOWN).perform();
 //        action.sendKeys(Keys.ENTER).perform();
 //        Thread.sleep(5000);
-        Select oldColurSelect=new Select(driver.findElement(By.id("oldSelectMenu")));
-        oldColurSelect.selectByIndex(2);
-        oldColurSelect.selectByIndex(3);
-        Thread.sleep(500);
-        String actualText=driver.findElement(By.id("oldSelectMenu")).getText();
-        Assertions.assertTrue(actualText.contains("Yellow"));
+        LocalDate dateSelect=LocalDate.now();
+        WebElement date=driver.findElement(By.id("datePickerMonthYearInput"));
+        date.sendKeys(Keys.CONTROL,"a");
+        date.sendKeys(Keys.BACK_SPACE);
+
+        date.sendKeys(dateSelect.toString());
+        date.sendKeys(Keys.ENTER);
         Thread.sleep(1000);
+
+
 
     }
 }
