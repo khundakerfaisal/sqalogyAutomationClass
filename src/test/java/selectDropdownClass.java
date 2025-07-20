@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,8 @@ public class selectDropdownClass {
 
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver=new ChromeDriver();
-        driver.get("https://demoqa.com/date-picker");
+//        driver.get("https://demoqa.com/date-picker");
+        driver.get("https://demoqa.com/select-menu");
         driver.manage().window().maximize();
 
 
@@ -30,11 +32,18 @@ public class selectDropdownClass {
 //            multiSelect.selectByVisibleText("Audi");
 //        }
             //select value from data
-        driver.findElements(By.cssSelector(".css-1hwfws3")).get(0).click();
-        Actions action=new Actions(driver);
-        action.sendKeys(Keys.ARROW_DOWN).perform();
-        action.sendKeys(Keys.ENTER).perform();
-        Thread.sleep(5000);
+//        driver.findElements(By.cssSelector(".css-1hwfws3")).get(0).click();
+//        Actions action=new Actions(driver);
+//        action.sendKeys(Keys.ARROW_DOWN).perform();
+//        action.sendKeys(Keys.ENTER).perform();
+//        Thread.sleep(5000);
+        Select oldColurSelect=new Select(driver.findElement(By.id("oldSelectMenu")));
+        oldColurSelect.selectByIndex(2);
+        oldColurSelect.selectByIndex(3);
+        Thread.sleep(500);
+        String actualText=driver.findElement(By.id("oldSelectMenu")).getText();
+        Assertions.assertTrue(actualText.contains("Yellow"));
+        Thread.sleep(1000);
 
     }
 }
