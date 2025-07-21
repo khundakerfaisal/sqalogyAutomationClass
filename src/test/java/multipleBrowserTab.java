@@ -11,11 +11,9 @@ public class multipleBrowserTab {
         driver.get("https://demoqa.com/browser-windows");
         driver.manage().window().maximize();
         driver.findElement(By.id("tabButton")).click();
-        ArrayList<String> arrayList=new ArrayList<>(driver.getWindowHandles());
-
-        driver.switchTo().window(arrayList.get(1));
+        ArrayList<String> listOfTab=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(listOfTab.get(1));
         Thread.sleep(2000);
         driver.close();
-
     }
 }
