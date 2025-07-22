@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -23,11 +20,14 @@ public class accessRolePassword {
         driver.findElement(By.xpath("//div/a[@data-menu-xmlid=\"base.menu_administration\"]")).click();
         Thread.sleep(1000);
 
+//        List<String> usernames = Arrays.asList(
+//                "init.user", "hod.user", "hoit.user", "md.user", "cfo.user",
+//                "gm.user", "scm.user", "shod.user", "commercial.user", "mrr.init.user",
+//                "mrr.reviewer.user", "mrr.approver.user", "mr.init", "mr.approver",
+//                "mi.init", "qc.init.user", "qc.approver.user", "hod.store", "ws.init"
+//        );
         List<String> usernames = Arrays.asList(
-                "init.user", "hod.user", "hoit.user", "md.user", "cfo.user",
-                "gm.user", "scm.user", "shod.user", "commercial.user", "mrr.init.user",
-                "mrr.reviewer.user", "mrr.approver.user", "mr.init", "mr.approver",
-                "mi.init", "qc.init.user", "qc.approver.user", "hod.store", "ws.init"
+                "init.user","hod.user", "hoit.user", "md.user"
         );
         for (String username:usernames){
             try {
@@ -60,6 +60,66 @@ public class accessRolePassword {
                 Thread.sleep(500);
                 driver.findElement(By.xpath("//span[@role='menuitem' and text()='Unarchive']")).click();
                 Thread.sleep(2000);
+
+                WebElement allowedDepartment=driver.findElement(By.xpath("//div/input[@placeholder='Allowed Department']"));
+                allowedDepartment.click();
+                Thread.sleep(500);
+                allowedDepartment.sendKeys(Keys.ARROW_DOWN);
+                allowedDepartment.sendKeys(Keys.ARROW_DOWN);
+                allowedDepartment.sendKeys(Keys.ARROW_DOWN);
+                allowedDepartment.sendKeys(Keys.ARROW_DOWN);
+                Thread.sleep(1000);
+                allowedDepartment.sendKeys(Keys.ENTER);
+                Thread.sleep(2000);
+
+                WebElement Department=driver.findElement(By.xpath("//div/input[@placeholder='Department']"));
+                Department.click();
+//                Department.sendKeys("Administration:Operations - CCL");
+                Thread.sleep(1000);
+                Department.sendKeys(Keys.ENTER);
+                Thread.sleep(2000);
+
+
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("window.scrollBy(0,800)");
+                Thread.sleep(500);
+                if (username.contains("init.user")){
+                    WebElement initiatorCheckbox = driver.findElement(By.id("in_group_192_1"));
+
+                    // Check if it's not already selected before clicking
+                    if (!initiatorCheckbox.isSelected()) {
+                        initiatorCheckbox.click();
+                    }
+                }
+                Thread.sleep(1000);
+                if (username.contains("hod.user")){
+                    WebElement hOdCheckbox = driver.findElement(By.id("in_group_194_1"));
+
+                    // Check if it's not already selected before clicking
+                    if (!hOdCheckbox.isSelected()) {
+                        hOdCheckbox.click();
+                    }
+                }
+                Thread.sleep(1000);
+                if (username.contains("hoit.user")){
+                    WebElement hoITCheckbox = driver.findElement(By.id("in_group_195_1"));
+
+                    // Check if it's not already selected before clicking
+                    if (!hoITCheckbox.isSelected()) {
+                        hoITCheckbox.click();
+                    }
+                }
+                Thread.sleep(1000);
+                if (username.contains("md.user")){
+                    WebElement mDCheckbox = driver.findElement(By.id("in_group_202_1"));
+
+                    // Check if it's not already selected before clicking
+                    if (!mDCheckbox.isSelected()) {
+                        mDCheckbox.click();
+                    }
+                }
+                Thread.sleep(1000);
+
                 driver.findElement(By.xpath("//button/i[@data-tooltip='Actions']")).click();
                 Thread.sleep(500);
                 driver.findElement(By.xpath("//span[@role='menuitem' and text()='Change Password']")).click();
