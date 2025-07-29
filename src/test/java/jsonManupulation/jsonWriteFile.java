@@ -18,9 +18,18 @@ public class jsonWriteFile {
             System.out.println(generateNumber);
 
         }
-
+        File file=new File(filePath);
         JSONParser parser=new JSONParser();
-        JSONArray lastNamedArray= (JSONArray) parser.parse(new FileReader(filePath));
+        JSONArray lastNamedArray;
+        if (!file.exists()|| file.length()==0){
+            lastNamedArray=new JSONArray();
+        }
+        else {
+            lastNamedArray= (JSONArray) parser.parse(new FileReader(filePath));
+
+        }
+        //If the array is blank system show array null exception
+             //        JSONArray lastNamedArray= lastNamedArray= (JSONArray) parser.parse(new FileReader(filePath));
         JSONObject lastNumberObj=new JSONObject();
         lastNumberObj.put("lastName",generateNumber);
         lastNamedArray.add(lastNumberObj);
