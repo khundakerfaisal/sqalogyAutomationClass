@@ -1,9 +1,13 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Set;
@@ -35,25 +39,38 @@ public class tabHandleNewClass {
 //
 //    }
     @Test
-    public void getNewWindowHandle() throws InterruptedException {
-        driver.get("https://demoqa.com/browser-windows");
-        driver.findElement(By.id("windowButton")).click();
-        String mainWindow = driver.getWindowHandle();
-        Set<String> getWindowHandleAll = driver.getWindowHandles();
-        for (String getAllWindow : getWindowHandleAll) {
-            if (!getAllWindow.equals(mainWindow)) {
-                driver.switchTo().window(getAllWindow);
-                Thread.sleep(2000);
-                String TextExpected = driver.findElement(By.id("sampleHeading")).getText();
-                String TextActual = "This is a sample page";
-                Assertions.assertTrue(TextActual.contains(TextExpected));
-                Thread.sleep(2000);
-                break;
+//    public void getNewWindowHandle() throws InterruptedException {
+//        driver.get("https://demoqa.com/browser-windows");
+//        driver.findElement(By.id("windowButton")).click();
+//        String mainWindow = driver.getWindowHandle();
+//        Set<String> getWindowHandleAll = driver.getWindowHandles();
+//        for (String getAllWindow : getWindowHandleAll) {
+//            if (!getAllWindow.equals(mainWindow)) {
+//                driver.switchTo().window(getAllWindow);
+//                Thread.sleep(2000);
+//                String TextExpected = driver.findElement(By.id("sampleHeading")).getText();
+//                String TextActual = "This is a sample page";
+//                Assertions.assertTrue(TextActual.contains(TextExpected));
+//                Thread.sleep(2000);
+//                break;
+//
+//            }
+//        }
+//        driver.close();
+//        driver.switchTo().window(mainWindow);
+//
+//
+//    }
+    public void alertHandle() throws InterruptedException {
+        driver.get("https://demoqa.com/buttons");
 
-            }
-        }
-        driver.close();
-        driver.switchTo().window(mainWindow);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,10)");
+        Actions action=new Actions(driver);
+        action.doubleClick(driver.findElement(By.id("doubleClickBtn"))).perform();
+
+//
+        Thread.sleep(3000);
 
 
     }
