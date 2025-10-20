@@ -1,5 +1,7 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ScrollUp {
@@ -11,9 +13,20 @@ public class ScrollUp {
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,600)");
         }
+    public void SrollTop() throws InterruptedException {
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://demoqa.com/text-box");
+        driver.manage().window().maximize();
+        Thread.sleep(500);
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,0)");
+//        WebElement currentAddress=driver.findElement(By.xpath("//input[@placeholder=\"Full Name\"]"));
+//        js.executeScript("arguments[0].scrollIntoView(true)",currentAddress);
+    }
 
     public static void main(String[] args) throws InterruptedException {
-        ScrollUp sup=new ScrollUp();
-        sup.SrollUp();
+        ScrollUp scroll=new ScrollUp();
+        scroll.SrollUp();
+        scroll.SrollTop();
     }
     }
