@@ -17,7 +17,10 @@ public class ExplicitWait {
     public static void main(String[] args) {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(60));
+        WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
+        usernameField.sendKeys("standard_user");
+//        driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
 
 
