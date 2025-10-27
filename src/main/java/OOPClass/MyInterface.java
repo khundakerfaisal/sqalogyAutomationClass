@@ -2,11 +2,10 @@ package OOPClass;
 
 public class MyInterface {
     public static void main(String[] args) {
-        Animal cat=new Cat();
+        Cat cat=new Cat();
         cat.sound();
         cat.walk();
-        Food food=new Cat();
-        food.eat();
+        cat.eat();
 
 
 
