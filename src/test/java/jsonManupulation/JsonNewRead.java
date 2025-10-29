@@ -12,29 +12,40 @@ import java.io.IOException;
 
 public class JsonNewRead {
     public static void main(String[] args) throws ParseException, IOException {
-        String fileLocation="src/test/resources/Student.json";
-        String studentId="student-1";
-        JSONArray jsonArray;
+        String fileLocation = "src/test/resources/Student.json";
+        String prefixName = "student-";
+        int studentCountNumber = 1;  // how many new students to add
+        int lastNumber = 0;
+        String generateStudentId = "";
 
-        JSONParser parser=new JSONParser();
-        try{
-            jsonArray= (JSONArray) parser.parse(new FileReader(fileLocation));
-        }
-        catch (Exception e){
+        JSONArray jsonArray;
+        JSONParser parser = new JSONParser();
+
+        try {
+
+            jsonArray = (JSONArray) parser.parse(new FileReader(fileLocation));
+        } catch (Exception e) {
+
             jsonArray = new JSONArray();
         }
-            //        //        File file = new File(fileLocation);
-            //        if (file.exists() && file.length()>0){
-            //             jsonArray= (JSONArray) parser.parse(new FileReader(fileLocation));
-            //        }
-            //        else {
-            //             jsonArray = new JSONArray();
-            //        }
 
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("Name",studentId);
-        jsonArray.add(jsonObject);
-        FileWriter writer=new FileWriter(fileLocation);
+
+        if (!jsonArray.isEmpty()) {
+            JSONObject lastNameObject = (JSONObject) jsonArray.get(jsonArray.size() - 1);
+            String lastNameStudent = lastNameObject.get("Name").toString();
+            lastNumber = Integer.parseInt(lastNameStudent.replace(prefixName, ""));
+        }
+
+
+        for (int i = 1; i <= studentCountNumber; i++) {
+            generateStudentId = prefixName + (lastNumber + i);
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("Name", generateStudentId);
+            jsonArray.add(jsonObject);
+        }
+
+        FileWriter writer = new FileWriter(fileLocation);
         writer.write(jsonArray.toJSONString());
         writer.flush();
         writer.close();
