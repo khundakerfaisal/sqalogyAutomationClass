@@ -13,8 +13,12 @@ public class Upload {
         Thread.sleep(500);
         WebElement srcFileUpload=driver.findElement(By.id("uploadFile"));
         Thread.sleep(1000);
-        srcFileUpload.sendKeys("H:\\MIME\\OneDrive - Confidence Group\\Documents\\Upload.gif");
+        String filePath = "src\\test\\java\\automationClassPractise\\Upload.gif";
+        String uploadData = System.getProperty("user.dir") + "\\" + filePath;
+        srcFileUpload.sendKeys(uploadData);
+//        srcFileUpload.sendKeys("H:\\MIME\\OneDrive - Confidence Group\\Documents\\Upload.gif");
         Thread.sleep(2000);
+
 
 
     }
