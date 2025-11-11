@@ -17,9 +17,21 @@ public class handleUpload {
         Thread.sleep(500);
 
         WebElement uploadElement=driver.findElement(By.id("uploadFile"));
-        String choosenFile="H:\\MIME\\OneDrive - Confidence Group\\Desktop\\Essential tools for automation.jpg";
-        uploadElement.sendKeys(choosenFile);
+
+        String filePath="\\src\\test\\resources\\screenshots\\68555.png";
+        String uploadFile=System.getProperty("user.dir")+filePath;
         Thread.sleep(4000);
+        uploadElement.sendKeys(uploadFile);
+
+
+//        String choosenFile="H:\\MIME\\OneDrive - Confidence Group\\Desktop\\Essential tools for automation.jpg";
+//        uploadElement.sendKeys(choosenFile);
+         Thread.sleep(4000);
+//        WebElement downloadElement=driver.findElement(By.id("downloadButton"));
+//        downloadElement.click();
+//        Thread.sleep(4000);
+
+
 
     }
 }
